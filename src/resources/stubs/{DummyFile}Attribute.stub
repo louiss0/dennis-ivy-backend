@@ -1,0 +1,17 @@
+<?php 
+
+
+namespace Src\Utils\Attributes;
+
+use Attribute;
+
+#[Attribute(Attribute::TARGET_METHOD)]
+class {DummyFile} {
+
+
+    public function __construct(){
+
+    
+    }
+
+}

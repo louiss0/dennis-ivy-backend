@@ -1,0 +1,36 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {DummyNamespace};
+
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Server\RequestHandlerInterface as Handle;
+use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Server\MiddlewareInterface;
+
+/**
+ * Middleware Must Also Be Registered To HttpKernel or Registered on specific routes
+ **/
+class {DummyClass} implements MiddlewareInterface
+{
+    
+    public function process(Request $request, Handle $handler):ResponseInterface
+    {
+        /* Execute Middleware Before Request Is Handled
+         * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         * $response = $handler->handle($request);
+         * $existing_body = (string) $response->getBody();
+         * $response = new Response;
+         * $response->getBody()->write("Before: {$existing_body}");
+         * return $response;
+        */
+
+        /* Execute Middleware After Request Is Handled
+         * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+         *   $response = $handler->handle($request);
+         *   $response->getBody()->write("\n After Middleware");
+         *   return $response;
+        */
+    }
+}

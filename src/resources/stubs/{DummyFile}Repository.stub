@@ -1,0 +1,18 @@
+<?php
+
+namespace {DummyNamespace};
+
+class {DummyFile}Repository extends Repository 
+{
+
+
+
+    function __construct(
+        private {DummyFile} $model
+    ){
+
+        parent::__construct($this->model);
+
+    }
+    
+}

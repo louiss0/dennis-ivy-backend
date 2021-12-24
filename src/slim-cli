@@ -1,0 +1,12 @@
+#!/bin/sh
+
+
+<?php
+
+use Src\App\Kernels\ConsoleKernel;
+
+require_once __DIR__ ."/routes/console.php"; 
+
+ConsoleKernel::registerAndRunAllCommands();
+
+exit;

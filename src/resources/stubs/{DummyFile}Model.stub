@@ -1,0 +1,19 @@
+<?php
+
+
+declare(strict_types=1);
+
+namespace {DummyNamespace};
+
+use Illuminate\Database\Eloquent\Model;
+
+class {DummyModel} extends Model
+{
+    protected $fillable = [
+        // fillable attributes
+    ];
+
+    protected $guarded = [
+        // guarded attributes
+    ];
+}

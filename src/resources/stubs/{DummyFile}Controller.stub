@@ -1,0 +1,92 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {DummyNamespace};
+
+use Psr\Http\Message\ResponseInterface;
+
+use Slim\Http\Response;
+
+use Slim\Http\ServerRequest;
+
+use Src\Utils\Classes\View;
+
+use Src\Types\Enums\CommonHTTPStatusCodes;
+
+class {DummyFile}Controller 
+{
+   
+    public function index(View $view,): ResponseInterface
+    {
+        # code...
+
+
+
+        return $view("home",);
+    }
+
+    public function show(Response $response, int $id): ResponseInterface
+    {
+        # code...
+
+        return $response->withJson(
+            data: [
+                "status" => "success",
+                "message" => " ",
+                "data"=> [
+
+                ]
+            ]
+        );
+    }
+
+
+    public function store(ServerRequest $request, Response $response)
+    {
+        # code...
+
+
+        return $response->withJson(
+            data: [
+                "status" => "success",
+                "message" => "{DummyFile} is created ",
+                "data"=> [
+                    
+                ]
+            ],
+            status: CommonHTTPStatusCodes::CREATED
+        );
+    }
+
+
+    public function update(Response $response, ):ResponseInterface
+    {
+        
+        
+        return $response->withJson(
+            data: [
+                "status" => "success",
+                "message" => "{DummyFile} is created ",
+                "data"=> [
+                    
+                ]
+            ],
+        );
+    }
+
+      public function destroy(Response $response, int $id)
+    {
+        # code...
+
+
+
+
+        return $response->withJson(
+            data: [
+                "status" => "success",
+                "message" => "{DummyFile} is deleted"
+            ]
+        );
+    }
+}
