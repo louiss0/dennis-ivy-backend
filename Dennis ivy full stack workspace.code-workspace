@@ -1,0 +1,30 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "dennis-ivy-frontend",
+			"path": "..\\..\\react-projects\\dennis-ivy-frontend"
+		}
+	],
+	"settings": {
+		"workbench.colorCustomizations": {
+			"activityBar.activeBackground": "#ffffff",
+			"activityBar.activeBorder": "#df9f9f",
+			"activityBar.background": "#ffffff",
+			"activityBar.foreground": "#15202b",
+			"activityBar.inactiveForeground": "#15202b99",
+			"activityBarBadge.background": "#df9f9f",
+			"activityBarBadge.foreground": "#15202b",
+			"statusBar.background": "#f5f6fa",
+			"statusBar.foreground": "#15202b",
+			"statusBarItem.hoverBackground": "#d3d7e9",
+			"tab.activeBorder": "#ffffff",
+			"sash.hoverBorder": "#ffffff",
+			"statusBarItem.remoteBackground": "#f5f6fa",
+			"statusBarItem.remoteForeground": "#15202b"
+		},
+		"peacock.color": "#f5f6fa"
+	}
+}

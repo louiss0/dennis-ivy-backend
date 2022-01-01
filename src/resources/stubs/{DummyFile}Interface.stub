@@ -1,6 +1,8 @@
 <?php
 
 
-interface {DummyFile}Interface {
+namespace {DummyNamespace};
+
+interface I{DummyFile} {
 
 }

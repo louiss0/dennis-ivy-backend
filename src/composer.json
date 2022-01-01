@@ -44,7 +44,8 @@
         "html2text/html2text": "^4.3",
         "robmorgan/phinx": "^0.12.7",
         "fakerphp/faker": "^1.15",
-        "louiss0/slim-route-registry": "^1.0"
+        "louiss0/slim-route-registry": "^1.0",
+        "intervention/image": "^2.7"
     }
 
 }

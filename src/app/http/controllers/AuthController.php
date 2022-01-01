@@ -55,7 +55,7 @@ class AuthController implements IAuthController
         $user = $this->userRepository->getUserByEmail($email);
 
 
-        throw_if(
+        throw_unless(
             condition: $user,
             exception: HttpUnauthorizedException::class,
             request: $request,
@@ -75,7 +75,12 @@ class AuthController implements IAuthController
 
 
         $token = $this->tokenAuthService->encode90DayToken(
-            $this->userRepository->getOne($user->getId())->toArray(),
+            [
+                "name" => $user->getName(),
+                "email" => $user->getEmail(),
+                "password" => $user->getPassword(),
+                "role" => $user->getRole(),
+            ],
         );
 
 
@@ -125,7 +130,7 @@ class AuthController implements IAuthController
 
 
 
-        $user = $this->userRepository->createOne(
+        $this->userRepository->createOne(
             array_merge(
                 $body,
                 [
@@ -134,9 +139,16 @@ class AuthController implements IAuthController
             )
         );
 
+        $user = $this->userRepository->getUserByEmail($email);
+
 
         $token = $this->tokenAuthService->encode90DayToken(
-            $user
+            [
+                "name" => $user->getName(),
+                "email" => $user->getEmail(),
+                "password" => $user->getPassword(),
+                "role" => $user->getRole(),
+            ],
         );
 
         CookieSender::sendJwtCookieThatExpiresIn90Days($token);

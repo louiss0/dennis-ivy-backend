@@ -2,11 +2,11 @@ SHELL=/bin/bash
 
 args = `arg="$(filter-out $@,$(MAKECMDGOALS))" && echo $${arg:-${1}}`
 
-php-container=php-docker_php_1
+php-container=dennis-ivy-backend_php_1
 
 
 phinx-rollback:
-	docker exec ${php-container} sh ./phinx rollback
+	docker exec ${php-container} sh ./phinx rollback 
 
 phinx-create:
 	docker exec ${php-container} sh ./phinx create	$(call args, defaultstring)

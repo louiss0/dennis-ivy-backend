@@ -9,6 +9,11 @@ use Src\Utils\Classes\ApiFeatures;
 abstract class Repository  implements IRepository
 {
 
+
+    function save(): void
+    {
+        $this->model->save();
+    }
     public function __construct(
         private Model $model
     ) {
@@ -21,6 +26,16 @@ abstract class Repository  implements IRepository
         return $this->model->all();
     }
 
+    function findOne(string $column, string|int $value, string $operator = "=")
+    {
+        return $this->model->query()->where($column, $operator, $value)->first();
+    }
+
+
+    function findMany(string $column, string|int $value, string $operator = "=")
+    {
+        return $this->model->query()->where($column, $operator, $value)->get();
+    }
 
     public function getAllBasedOnQueryParameters(array $query_array): array
     {
@@ -45,7 +60,7 @@ abstract class Repository  implements IRepository
         return $this->model
             ->query()
             ->where("id", $id)
-            ->firstOrFail();
+            ->first();
     }
     public function createOne(array $data)
     {

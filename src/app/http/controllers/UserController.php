@@ -2,15 +2,16 @@
 
 namespace Src\App\Http\Controllers;
 
-use Louiss0\SlimRouteRegistry\Attributes\UseMiddleWareOn;
-use Louiss0\SlimRouteRegistry\Contracts\CRUDControllerContract;
+use Louiss0\SlimRouteRegistry\Attributes\{UseMiddleWareOn};
+use Louiss0\SlimRouteRegistry\Contracts\{CRUDControllerContract};
 use Slim\Http\Response;
 use Slim\Http\ServerRequest;
 use Src\Types\Enums\CommonHTTPStatusCodes;
-use Src\App\Http\Middleware\Attributes\TokenAuthMiddleware;
-use Src\App\Http\Middleware\Attributes\RouteRestrictionMiddleware;
-use Src\App\Repositories\UserRepository;
-
+use Src\App\Http\Middleware\Attributes\{
+    TokenAuthMiddleware,
+    RouteRestrictionMiddleware,
+};
+use Src\Types\Interfaces\{IUserRepository};
 
 #[
     UseMiddleWareOn(
@@ -32,7 +33,7 @@ final class UserController implements CRUDControllerContract
 
 
     public function __construct(
-        private UserRepository $userRepository,
+        private IUserRepository $userRepository,
     ) {
     }
 
@@ -74,17 +75,13 @@ final class UserController implements CRUDControllerContract
     }
 
 
-    public function update(int $id, Response $response): Response
+    public function update(int $id, ServerRequest $request, Response $response): Response
     {
-
         return $response->withJson(
-            data: [
+            [
                 "status" => "success",
-                "message" => "Here is the user",
-                "data" => [
-                    "user" => $this->userRepository->getOne($id)
-
-                ],
+                "message" => " ",
+                "data" => []
             ]
         );
     }

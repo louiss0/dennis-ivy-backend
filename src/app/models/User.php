@@ -13,23 +13,22 @@ final class User extends Model
 {
 
 
+    use SoftDeletes;
 
 
     const ID = "id";
     const NAME = "name";
     const EMAIL = "email";
     const PASSWORD = "password";
+    // TODO: Remember to put admin, staff, and user to the roles 
     const ROLE = "role";
-    const PHOTO = "photo";
 
-    // use SoftDeletes;
 
     protected $fillable = [
         self::NAME,
         self::EMAIL,
         self::PASSWORD,
         self::ROLE,
-        self::PHOTO,
     ];
 
     protected $guarded = [self::ID];
@@ -44,6 +43,27 @@ final class User extends Model
         # code...
 
         return $this->id;
+    }
+
+    public function getName(): string
+    {
+        # code...
+
+        return $this->name;
+    }
+
+    public function getEmail(): string
+    {
+        # code...
+
+        return $this->email;
+    }
+
+    public function getRole(): string
+    {
+        # code...
+
+        return $this->role;
     }
 
 
@@ -108,6 +128,8 @@ final class User extends Model
         # code...
         return $this->update($body);
     }
+
+
     public function saveChanges()
     {
         # code...

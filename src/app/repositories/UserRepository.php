@@ -16,6 +16,26 @@ class UserRepository extends Repository implements IUserRepository
     }
 
 
+    function getOne(int $id): ?User
+    {
+        return parent::getOne($id);
+    }
+
+
+    function findOne(string $column, string|int $value, string $operator = "="): ?User
+    {
+        return parent::findOne($column, $value, $operator);
+    }
+
+
+
+    /**  @return User[]  */
+    function findMany(string $column, string|int $value, string $operator = "=")
+    {
+        return parent::findMany($column, $value, $operator);
+    }
+
+
     public function getUserByNameAndEmail(string $name, string $email): ?User
     {
         return $this->user_model
@@ -30,10 +50,7 @@ class UserRepository extends Repository implements IUserRepository
     {
 
 
-        return $this->user_model
-            ->query()
-            ->where('email', $email)
-            ->first();
+        return $this->findOne('email', $email);
     }
 
 
@@ -41,37 +58,20 @@ class UserRepository extends Repository implements IUserRepository
     {
         # code...
 
-        return $this->user_model
-            ->query()
-            ->where('password', $password)
-            ->first();
+        return $this->findOne('password', $password);
     }
 
 
     public function getUserByResetToken(string $resetToken): ?User
     {
-        return $this->user_model
-            ->query()
-            ->where('reset_token', $resetToken)
-            ->first();
-    }
-
-    public function getUserById(string $id): ?User
-    {
-        return $this->user_model
-            ->query()
-            ->where('id', $id)
-            ->first();
+        return $this->findOne('reset_token', $resetToken);
     }
 
 
 
     function deleteUserByEmail(string $email)
     {
-        return $this->user_model
-            ->query()
-            ->where("email", $email)
-            ->delete();
+        return $this->findOne("email", $email)->delete();
     }
 
     function forceDeleteUserById(string $id)

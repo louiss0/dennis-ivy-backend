@@ -37,11 +37,13 @@ final class UsersMigration extends AbstractMigration
         $table = $this->table("users");
 
 
+
+
         $table
             ->addColumn("name", "string", ["limit" => 255])
             ->addColumn("email", "string", ["limit" => 255])
             ->addColumn("password", "string",)
-            ->addColumn("role", "enum", ["values" => "role,admin"])
+            ->addColumn("role", MysqlAdapter::PHINX_TYPE_ENUM, ["values" => ["admin", "staff", "user"]])
             ->addColumn(
                 "reset_token",
                 "text",
@@ -59,6 +61,11 @@ final class UsersMigration extends AbstractMigration
             ->addColumn(
                 "photo",
                 "string",
+                ["null" => true, "default" => null]
+            )
+            ->addColumn(
+                "deleted_at",
+                MysqlAdapter::PHINX_TYPE_TIMESTAMP,
                 ["null" => true, "default" => null]
             )
             ->addTimestamps()

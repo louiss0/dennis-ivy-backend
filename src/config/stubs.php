@@ -86,7 +86,7 @@ $make_service = [
 
             '{DummyFile}' => ':name:',
 
-            '{DummyClass}' => ':name:',
+            '{DummyClass}Service' => ':name:',
 
             '{DummyNamespace}' => 'Src\\App\\Services',
         ]
@@ -193,7 +193,7 @@ $make_interface = [
         ],
         'content' => [
 
-            '{DummyFile}Interface' => ':name:',
+            '{DummyFile}' => ':name:',
 
             '{DummyNamespace}' => 'Src\\Types\\Interfaces',
 

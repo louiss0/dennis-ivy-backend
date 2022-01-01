@@ -119,7 +119,7 @@ class TokenAuthService
 
 
 
-        $parsed_token = $this->tokenAuthService->decodeToken($token);
+        $parsed_token = $this->decodeToken($token);
 
 
         $exp = $parsed_token->claims()->get("exp");
@@ -146,7 +146,7 @@ class TokenAuthService
     {
         # code...
 
-        $parsed_token = $this->tokenAuthService->decodeToken($token);
+        $parsed_token = $this->decodeToken($token);
 
 
         return $parsed_token->claims()->all();
@@ -156,7 +156,7 @@ class TokenAuthService
     {
         # code...
 
-        $parsed_token = $this->tokenAuthService->decodeToken($token);
+        $parsed_token = $this->decodeToken($token);
 
 
         $role = $parsed_token->claims()->get("role");

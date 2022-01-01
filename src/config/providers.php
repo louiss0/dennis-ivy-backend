@@ -1,10 +1,13 @@
 <?php
 
-use Src\App\Providers\CorsMiddlewareServiceProvider;
-use Src\App\Providers\DatabaseServiceProvider;
-use Src\App\Providers\RouteServiceProvider;
-use Src\App\Providers\LoggerServiceProvider;
-use Src\App\Providers\ViewServiceProvider;
+use Src\App\Providers\{
+    CorsMiddlewareServiceProvider,
+    DatabaseServiceProvider,
+    RouteServiceProvider,
+    LoggerServiceProvider,
+    RepositoryServiceProvider,
+    ViewServiceProvider,
+};
 
 $providers = [
     LoggerServiceProvider::class,
@@ -12,6 +15,7 @@ $providers = [
     ViewServiceProvider::class,
     CorsMiddlewareServiceProvider::class,
     RouteServiceProvider::class,
+    RepositoryServiceProvider::class,
 ];
 
 
